@@ -12,10 +12,12 @@ class Order(BaseOrder):
     billing_address = models.ForeignKey(Address, verbose_name=_('Dirección de facturación'), blank=True, null=True, related_name='billing_address')
 
     def set_billing_address(self, billing_address):
+        super(Order, self).set_billing_address(billing_address)
         self.billing_address = billing_address
         self.save()
 
     def set_shipping_address(self, shipping_address):
+        super(Order, self).set_shipping_address(shipping_address)
         self.shipping_address = shipping_address
         self.save()
 
